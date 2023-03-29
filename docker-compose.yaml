@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  collector:
+    image: otel/opentelemetry-collector:latest
+    container_name: collector
+    volumes:
+      - ./collector/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - ./collector/certs/certificado.crt:/etc/certificado.crt
+      - ./collector/certs/certificado.key:/etc/certificado.key
+      - ./collector/certs/rootCA.crt:/etc/rootCA.crt
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    ports:
+      - "4317:4317"  
+  
+  app:
+    build:
+      dockerfile: ./immutant/Dockerfile
+      context: .
+    ports:
+      - 8080:8080
