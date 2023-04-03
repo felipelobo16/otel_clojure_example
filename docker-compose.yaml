@@ -10,11 +10,18 @@ services:
       - ./collector/certs/rootCA.crt:/etc/rootCA.crt
     command: ["--config=/etc/otel-collector-config.yaml"]
     ports:
-      - "4317:4317"  
+      - "4317:4317"
   
-  app:
+  jetty:
     build:
-      dockerfile: ./immutant/Dockerfile
+      dockerfile: ./jetty/Dockerfile
       context: .
     ports:
       - 8080:8080
+
+  buddy-auth:
+    build:
+      dockerfile: ./buddy-auth/Dockerfile
+      context: .
+    ports:
+      - "8081:8080"
