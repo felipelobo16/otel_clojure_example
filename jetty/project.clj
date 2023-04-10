@@ -25,7 +25,11 @@
                  [org.slf4j/jul-to-slf4j "1.7.35"]
                  [org.slf4j/jcl-over-slf4j "1.7.35"]
                  [org.slf4j/log4j-over-slf4j "1.7.35"]
-                 [com.github.steffan-westcott/clj-otel-api "0.1.5"]]
+                 [org.clojure/tools.trace "0.7.11"]
+                 [com.amperity/ken "1.2.0"]
+                 [mvxcvi/puget "1.3.4"]
+                 [io.pedestal/pedestal.interceptor "0.5.10"]
+                 [com.github.steffan-westcott/clj-otel-api "0.2.0"]]
 
   :min-lein-version "2.0.0"
   :resource-paths ["config", "resources"]

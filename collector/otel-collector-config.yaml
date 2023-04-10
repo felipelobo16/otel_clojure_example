@@ -9,7 +9,7 @@ exporters:
  otlp:
    endpoint: https://otlp.nr-data.net:4317
    headers:
-     api-key: ""
+     api-key: "your-key"
    tls:
      insecure: false
      
